@@ -10,6 +10,15 @@ export default {
         sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
       },
+      colors:{
+        color: {
+          DEFAULT: "#1c1c1c",
+          dark: "#D4D4D4"
+        },
+        accent: {
+          DEFAULT: "#5d5f3f", // Color para el modo claro
+          dark: "#8fa03b",    // Color específico para el modo oscuro
+        },      },
       typography: {
         quoteless: {
           css: {

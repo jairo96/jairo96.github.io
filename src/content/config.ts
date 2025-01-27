@@ -1,17 +1,29 @@
 import { defineCollection, z } from 'astro:content';
 
-const blog = defineCollection({
-	type: 'content',
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		summary: z.string(),
-		tags: z.string(),
-		// Transform string to Date object
-		publishedAt: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-	}),
-});
 
-export const collections = { blog };
+
+
+// Define un esquema común para ambas colecciones
+const commonSchema = z.object({
+	title: z.string(),
+	summary: z.string(),
+	authors: z.array(z.string()).default([]),
+	publishedAt: z.coerce.date(),
+	urls: z.record(z.any()).default({}),
+  });
+  
+  // Define la colección `publications` utilizando el esquema común
+  const publications = defineCollection({
+	type: 'content',
+	schema: commonSchema,
+  });
+  
+  // Define la colección `workingPapers` reutilizando el mismo esquema
+  const workingPapers = defineCollection({
+	type: 'content',
+	schema: commonSchema,
+  });
+  
+
+  // Exporta todas las colecciones
+  export const collections = { publications, workingPapers };
