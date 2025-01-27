@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import staticSite from '@astrojs/static-site';
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
@@ -12,7 +13,7 @@ import opengraphImages, { presets } from "astro-opengraph-images";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ajanez.github.io",
+  
   integrations: [
     mdx({
       image: {
@@ -73,5 +74,9 @@ export default defineConfig({
       },
     }),
   ],
+  site: "https://jrodero.github.io",
   output: "static",
+  adapter: staticSite(),
+  base: 'portfolio'
+
 });
