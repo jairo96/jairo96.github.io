@@ -75,7 +75,6 @@ export default defineConfig({
   ],
   site: "https://jrodero.github.io",
   output: "static",
-  adapter: staticSite(),
   base: 'portfolio'
 
 });
