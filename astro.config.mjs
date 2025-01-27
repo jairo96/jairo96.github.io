@@ -73,8 +73,8 @@ export default defineConfig({
       },
     }),
   ],
-  site: "https://jrodero.github.io",
+  site: "https://jrodero.github.io/",
   output: "static",
-  base: 'portfolio'
+  base: '/'
 
 });
